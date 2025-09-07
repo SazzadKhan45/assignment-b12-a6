@@ -13,21 +13,21 @@ const displayAllTreeInfo = (plants) => {
             <img class="rounded-lg mb-4 h-[220px] w-[100%]" src=${plant.image} alt="plant img">
         </div>
         <div>
-            <h3 onclick="singleTreeDataFetch(${plant.id})" class="text-2xl font-bold cursor-pointer">${plant.name}</h3>
-            <p class="text-[#1f2937] text-justify my-2">${plant.description}</p>
+            <h3 id="name-${plant.id}" onclick="singleTreeDataFetch(${plant.id})" class="text-2xl font-bold cursor-pointer">${plant.name}</h3>
+            <p  class="text-[#1f2937] text-justify my-2">${plant.description}</p>
             <div class="flex justify-between items-center">
                 <button class="bg-[#dcfce7] px-5 py-1 rounded-full font-medium text-lg">${plant.category}</button>
                 <h4 class="text-xl font-bold">৳<span id="plant-price">${plant.price}</span></h4>
             </div>
-            <button class="bg-[#15803d] text-lg text-white font-medium py-1 rounded-full w-full mt-4 cursor-pointer">Add to Cart</button>
+            <button onclick="priceTotalAmount(${plant.price}, '${plant.name}')" class="bg-[#15803d] text-lg text-white font-medium py-1 rounded-full w-full mt-4 cursor-pointer">Add to Cart</button>
         </div>
     </div>
         `;
 
         // append div
         plantUiDiv.appendChild(plantCardDiv)
-    });
 
+    });
 };
 
 // Category button display show Ui function
@@ -39,7 +39,7 @@ const AllCategoryBtnDisplay = (categories) => {
     // 🔹 Default "All Trees" button
     const allTreesButton = document.createElement('button');
     allTreesButton.classList.add(
-        'py-2','text-xl','font-medium','rounded-lg','px-4','cursor-pointer','get-category-btn','active-btn', 'w-full', 'text-left');
+        'py-2', 'text-xl', 'font-medium', 'rounded-lg', 'px-4', 'cursor-pointer', 'get-category-btn', 'active-btn', 'w-full', 'text-left');
 
     allTreesButton.innerText = "All Trees";
     allTreesButton.id = "all-trees";
@@ -58,7 +58,7 @@ const AllCategoryBtnDisplay = (categories) => {
     categories.forEach(category => {
         const categoryButton = document.createElement('button');
         categoryButton.classList.add(
-            'text-lg','font-medium','py-2','cursor-pointer','w-full','mt-4','px-4','hover:bg-[#cff0dc]','rounded-lg','text-left','get-category-btn');
+            'text-lg', 'font-medium', 'py-2', 'cursor-pointer', 'w-full', 'mt-4', 'px-4', 'hover:bg-[#cff0dc]', 'rounded-lg', 'text-left', 'get-category-btn');
 
         categoryButton.id = `${category.id}`;
         categoryButton.innerText = category.category_name;
@@ -95,13 +95,13 @@ const categoryPlatData = (categoryTress) => {
             <img class="rounded-lg mb-4 h-[220px] w-[100%]" src=${plant.image} alt="plant img">
         </div>
         <div>
-            <h3 class="text-2xl font-bold cursor-pointer">${plant.name}</h3>
+            <h3 onclick="singleTreeDataFetch(${plant.id})" class="text-2xl font-bold cursor-pointer">${plant.name}</h3>
             <p class="text-[#1f2937] text-justify my-2">${plant.description}</p>
             <div class="flex justify-between items-center">
                 <button class="bg-[#dcfce7] px-5 py-1 rounded-full font-medium text-lg">${plant.category}</button>
                 <h4 class="text-xl font-bold">৳<span id="plant-price">${plant.price}</span></h4>
             </div>
-            <button class="bg-[#15803d] text-lg text-white font-medium py-1 rounded-full w-full mt-4 cursor-pointer">Add to Cart</button>
+            <button onclick="priceTotalAmount(${plant.price}, '${plant.name}')" class="bg-[#15803d] text-lg text-white font-medium py-1 rounded-full w-full mt-4 cursor-pointer">Add to Cart</button>
         </div>
     </div>
         `;
@@ -112,14 +112,14 @@ const categoryPlatData = (categoryTress) => {
 };
 
 // Show Modal data in a function
-const modalOpenUi = (plantInfo) =>{
+const modalOpenUi = (plantInfo) => {
     // .........
     const modalContainer = document.getElementById('modal-container');
     modalContainer.innerHTML = "";
 
     //modal info
     const modalDiv = document.createElement('div');
-    
+
     modalDiv.innerHTML = `
         <img class="h-[300px] w-full rounded-lg" src=${plantInfo.image} alt="plant-info">
         <div class="my-4">
