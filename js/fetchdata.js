@@ -29,6 +29,15 @@ const categoryPlantDataFetch = (id) => {
 }
 
 
+// Tree details show data fetch
+const singleTreeDataFetch = (id) => {
+    const url = `https://openapi.programming-hero.com/api/plant/${id}`;
+    fetch(url)
+    .then(res => res.json())
+    .then(data => modalOpenUi(data.plants))
+}
+
+
 
 
 

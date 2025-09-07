@@ -13,7 +13,7 @@ const displayAllTreeInfo = (plants) => {
             <img class="rounded-lg mb-4 h-[220px] w-[100%]" src=${plant.image} alt="plant img">
         </div>
         <div>
-            <h3 class="text-2xl font-bold cursor-pointer">${plant.name}</h3>
+            <h3 onclick="singleTreeDataFetch(${plant.id})" class="text-2xl font-bold cursor-pointer">${plant.name}</h3>
             <p class="text-[#1f2937] text-justify my-2">${plant.description}</p>
             <div class="flex justify-between items-center">
                 <button class="bg-[#dcfce7] px-5 py-1 rounded-full font-medium text-lg">${plant.category}</button>
@@ -80,10 +80,6 @@ const AllCategoryBtnDisplay = (categories) => {
 };
 
 
-
-
-
-
 // Category plat data display
 
 const categoryPlatData = (categoryTress) => {
@@ -113,6 +109,30 @@ const categoryPlatData = (categoryTress) => {
         // append div
         plantUiDiv.appendChild(plantCardDiv)
     });
+};
+
+// Show Modal data in a function
+const modalOpenUi = (plantInfo) =>{
+    // .........
+    const modalContainer = document.getElementById('modal-container');
+    modalContainer.innerHTML = "";
+
+    //modal info
+    const modalDiv = document.createElement('div');
+    
+    modalDiv.innerHTML = `
+        <img class="h-[300px] w-full rounded-lg" src=${plantInfo.image} alt="plant-info">
+        <div class="my-4">
+            <h3 class="text-lg font-bold">${plantInfo.name}</h3>                
+            <p class="text-[#1f2937] text-justify py-2 ">${plantInfo.description}</p>                
+            <h2 class="text-lg font-bold">Price ৳-${plantInfo.price}</h2>                
+            <button class="bg-[#dcfce7] px-6 py-2 rounded-full my-2">${plantInfo.category}</button>                
+        </div>
+    `;
+    // append info of a modal
+    modalContainer.append(modalDiv)
+    // 
+    document.getElementById('plant_modal').showModal();
 }
 
 
