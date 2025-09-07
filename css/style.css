@@ -3,3 +3,8 @@
 body{
     font-family: "Inter", sans-serif;
 }
+
+.active-btn{
+    color: white;
+    background-color: #15803d;
+}
