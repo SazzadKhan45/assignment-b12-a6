@@ -1,6 +1,11 @@
 // All plat trees show the Ui
 
 const displayAllTreeInfo = (plants) => {
+
+    // Show spinner before loading (optional)
+    const spinner = document.getElementById('loading-spinner');
+    spinner.style.display = 'block';
+
     // get the Ui container 
     const plantUiDiv = document.getElementById('tree-container');
 
@@ -28,11 +33,14 @@ const displayAllTreeInfo = (plants) => {
         plantUiDiv.appendChild(plantCardDiv)
 
     });
+
+     spinner.style.display = 'none';
 };
 
 // Category button display show Ui function
 
 const AllCategoryBtnDisplay = (categories) => {
+
     const categoryContainer = document.getElementById('category-button');
     categoryContainer.innerHTML = ""; // clear old buttons
 
@@ -77,12 +85,18 @@ const AllCategoryBtnDisplay = (categories) => {
 
         categoryContainer.appendChild(categoryButton);
     });
+    
 };
 
 
 // Category plat data display
 
 const categoryPlatData = (categoryTress) => {
+
+    // Show spinner before loading (optional)
+    const spinner = document.getElementById('loading-spinner');
+    spinner.style.display = 'block';
+
     const plantUiDiv = document.getElementById('tree-container');
     plantUiDiv.innerHTML = "";
 
@@ -109,6 +123,8 @@ const categoryPlatData = (categoryTress) => {
         // append div
         plantUiDiv.appendChild(plantCardDiv)
     });
+
+    spinner.style.display = 'none';
 };
 
 // Show Modal data in a function

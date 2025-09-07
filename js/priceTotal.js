@@ -1,6 +1,4 @@
-
-
-
+// 
 let total = 0; 
 
 const priceTotalAmount = (price, plantName) => {
