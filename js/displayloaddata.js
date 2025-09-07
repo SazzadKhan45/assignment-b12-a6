@@ -13,13 +13,13 @@ const displayAllTreeInfo = (plants) => {
             <img class="rounded-lg mb-4 h-[220px] w-[100%]" src=${plant.image} alt="plant img">
         </div>
         <div>
-            <h3 class="text-2xl font-bold">Mango Tree</h3>
-            <p class="text-[#1f2937] my-2">A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green</p>
+            <h3 class="text-2xl font-bold cursor-pointer">${plant.name}</h3>
+            <p class="text-[#1f2937] text-justify my-2">${plant.description}</p>
             <div class="flex justify-between items-center">
-                <button class="bg-[#dcfce7] px-5 py-1 rounded-full font-medium text-lg">Fruit Tree</button>
-                <h4 class="text-xl font-bold">৳<span id="plant-price">500</span></h4>
+                <button class="bg-[#dcfce7] px-5 py-1 rounded-full font-medium text-lg">${plant.category}</button>
+                <h4 class="text-xl font-bold">৳<span id="plant-price">${plant.price}</span></h4>
             </div>
-            <button class="bg-[#15803d] text-lg text-white font-medium py-1 rounded-full w-full mt-4 ">Add to Cart</button>
+            <button class="bg-[#15803d] text-lg text-white font-medium py-1 rounded-full w-full mt-4 cursor-pointer">Add to Cart</button>
         </div>
     </div>
         `;
@@ -28,28 +28,37 @@ const displayAllTreeInfo = (plants) => {
         plantUiDiv.appendChild(plantCardDiv)
     });
 
-}
+};
+
+// Category button display show Ui function
+
+const AllCategoryBtnDisplay = (categories) => {
+    console.log(categories);
+
+    // Get the container where buttons should go
+    const categoryContainer = document.getElementById('category-button');
+
+    // Loop through categories and create buttons
+    categories.forEach(category => {
+        const categoryButton = document.createElement('h3');
+        categoryButton.classList.add(
+            'text-xl',
+            'font-bold',
+            'py-2',
+            'cursor-pointer',
+            'w-full',
+            'mt-4',
+            'px-4'
+        );
+
+        // Set text inside button
+        categoryButton.innerText = category.category_name;
+
+        // Append to container
+        categoryContainer.appendChild(categoryButton);
+    });
+};
 
 
 
-
-
-// category
-// :
-// "Fruit Tree"
-// description
-// :
-// "A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green canopy offers shade, while its sweet fruits are rich in vitamins and minerals."
-// id
-// :
-// 1
-// image
-// :
-// "https://i.ibb.co.com/cSQdg7tf/mango-min.jpg"
-// name
-// :
-// "Mango Tree"
-// price
-// :
-// 500
 
