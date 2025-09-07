@@ -149,7 +149,7 @@ const modalOpenUi = (plantInfo) => {
     modalContainer.append(modalDiv)
     // 
     document.getElementById('plant_modal').showModal();
-}
+};
 
 
 
